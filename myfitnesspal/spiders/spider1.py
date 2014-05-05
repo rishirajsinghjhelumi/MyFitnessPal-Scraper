@@ -72,7 +72,7 @@ class MyfitnesspalSpider(CrawlSpider):
     start_urls = ['http://www.myfitnesspal.com']
 
     rules = [
-        Rule(SgmlLinkExtractor(allow=r'/tag/show/.*'), follow=True),
+        Rule(SgmlLinkExtractor(allow=[r'/tag/show/.*']), follow=True),
         Rule(SgmlLinkExtractor(allow=[r'/nutrition-facts-calories/.*']), follow=True),
         Rule(SgmlLinkExtractor(allow=[r'/food/calories/.*']), callback='parse_item', follow=True),
         ]
